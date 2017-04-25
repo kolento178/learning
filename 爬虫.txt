@@ -1,0 +1,50 @@
+html_doc =
+<html><head><title>The Dormouse's story</title></head>
+<body>
+<p class="title"><b>The Dormouse's story</b></p>
+
+<p class="story">Once upon a time there were three little sisters; and their names were
+<a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
+<a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
+<a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
+and they lived at the bottom of a well.</p>
+
+<p class="story">...</p>
+
+from bs4 import BeautifulSoup
+soup=BeautifulSoup(html_doc,'html.parser',from_encoding='utf-8')
+links=soup.find_all('a')
+for link in links:
+	print(link['name'],link['href'],link.get_text())
+
+
+Beautiful Soup 将复杂HTML文档转换成一个复杂的树形结构,每个节点都是 Python 对象,所有对象可以归纳为4种:
+? Tag
+? NavigableString
+? BeautifulSoup
+? Commen
+
+Tag（soup.title---即soup.（标签名））
+Tag 是什么？通俗点讲就是 HTML 中的一个个标签，例如
+<title>The Dormouse's story</title>
+<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+上面的 title a 等等 HTML 标签加上里面包括的内容就是 Tag
+
+
+
+head = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36'
+}
+
+
+css 选择器
+css 选择器表示选择元素所使用 的模式 。 下 面是一些常用 的选择器示例 。
+选择所有标签： ＊
+选择＜a＞标 签： a
+选择所有 class＝ ”link” 的 元 素 ： .lin k
+选择 clas s ＝ ”link” 的 ＜a＞标 签： a.link
+选择 id= " home ” 的 ＜a＞标 签： aJfhome
+选择父 元 素 为 ＜a＞标签的所有＜ span＞子标 签： a > span
+选择＜a＞标签 内 部 的所有＜ span＞标签： a span
+选择 title 属性为 ” Home ” 的所有＜a＞标 签： a [ title=Home ]
+

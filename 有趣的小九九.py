@@ -1,4 +1,5 @@
-1-100Ö®ÄÚÆæÊıºÍ
+"""
+# 1-100ä¹‹å†…å¥‡æ•°å’Œ
 sum=0
 x=0
 while True:
@@ -9,9 +10,11 @@ while True:
         continue
     sum+=x
     print(sum)
+"""
 
 
-¾Å¾Å³Ë·¨±í
+"""
+# ä¹ä¹ä¹˜æ³•è¡¨
 for x in [1,2,3,4,5,6,7,8,9]:
     l=''
     for y in [1,2,3,4,5,6,7,8,9]:
@@ -25,7 +28,7 @@ def hhh(l):
     return   '\n'.join([','.join(['%sX%s=%-2s'%(x,y,x*y)for y in range(1,x+1)])for x in range(1,l+1)])
 print(hhh(6))
 
-¾Å¾Å³Ë·¨±í£¨¼Ó¶ººÅ£©
+# ä¹ä¹ä¹˜æ³•è¡¨ï¼ˆé€—å·ï¼‰
 
 for x in [1,2,3,4,5,6,7,8,9]:
     l=''
@@ -41,7 +44,7 @@ for x in [1,2,3,4,5,6,7,8,9]:
 
 
 
-·½·¨¶ş
+# æ–¹æ³•äºŒ
 for x in range(1,10):
     i=''
     for y in range(1,x+1):
@@ -51,40 +54,108 @@ for x in range(1,10):
     print(i)
 
 
-Ò»ĞĞ´úÂë£º
+# ä¸€è¡Œä»£ç ï¼š
 print( '\n'.join([','.join(['%s+%s=%-2s'%(x,y,x*y)for y in range(1,x+1)])for x in range(1,10)]))
 
-
-¸´ÔÓ»¯ big = []
+# å¤æ‚åŒ–
+big = []
 for x in range(1,10):
     small = []
     for y in range(1,x+1):
-        small.append( '%sX%s=%-2s'%(x,y,x*y))
+        small.append('%sX%s=%-2s'%(x,y,x*y))
     big.append(','.join(small))
 print('\n'.join(big))
 
+"""
 
+"""
+# è¿˜æ˜¯å°ä¹ä¹
+# åŸå§‹
+def table(max=9):
+    n = 1
+    while n <= max:
+        h = ['%sX%s=%s' % (i, n, i*n)for i in range(1, n+1)]
+        n += 1
+        print(h)
+table()
 
-3µÄ±¶Êı
+# æ”¹è¿›
+def table2(max=9):
+    n =1
+    l = []
+    while n <= max:
+        N = ['{}X{}={}'.format(i, n ,i*n)for i in range(1, n+1)]
+        l.append(N)
+        n += 1
+    return l
+T = table2()
+for t in T:
+    print(t)
+
+# ç”Ÿæˆå™¨
+def table3(max=9):
+    n = 1
+    while n <= max:
+        N = ['{}X{}={}'.format(i, n, i*n)for i in range(1, n+1)]
+        n += 1
+        yield N
+T = table3()
+for t in T:
+    print(t)
+"""
+
+"""
+# 3çš„å€æ•°
 array = range(3,102,3)
 for l in array:
     print(l)
+"""
 
 
-
-ÎÊÌâ(¼ÆËãrange£¨1,101£© 1*1+2*2+....100*100)
-·½·¨1£º
-a=range(1,101)
-sum=0
-while a<4:
-    sum+=a*a
+"""
+# é—®é¢˜(è®¡ç®—rangeï¼ˆ1,101ï¼‰ 1*1+2*2+....100*100)
+# æ–¹æ³•1ï¼š
+num=0
+for a in range(1,101):
+    num += a*a
     a=a+1
-    print(sum)
+print(num)
 
-·½·¨2£º
+# æ–¹æ³•2ï¼š
 L = []
 x = 1
 while x <= 100:
     L.append(x * x)
     x = x + 1
-print£¨sum(L)£©
+print(sum(L))
+"""
+
+"""
+# æ–æ³¢é‚£å¥‘æ•°åˆ—
+def fib(max):
+    n, a, b = 0, 0, 1
+    l = []
+    for i in range(max):
+        l.append(b)
+        a, b = b, a + b
+        yield l
+for d in fib(3):
+    print(d)
+"""
+
+
+"""
+# æ¨è¾‰ä¸‰è§’
+def yanghui(max):
+    N = [1]
+    n = 0
+    while n < max:
+        yield N
+        N.append(0)
+        N = [N[i-1]+N[i]for i in range(len(N))]
+        n += 1
+for t in yanghui(5):
+    print(t)
+"""
+
+
